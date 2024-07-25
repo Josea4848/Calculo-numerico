@@ -17,9 +17,13 @@ u = 200 #Velocidade de exaustão
 
 f(t) = (u*log(M0/(M0 - (c*t))) + g*t) - v #Função da velocidade
 
-while (true) #Interação
+count = 1
+
+while (true) #Iteração
     global a
     global b
+
+    global count += 1 #Contador
 
     if(f(a)*f(b) < 0) #Teorema de Bolzano
         x = (a + b)/2 #TVM
@@ -32,16 +36,11 @@ while (true) #Interação
             a = x
         end
 
-        if((b-a) < 0.008) #Critério de parada
-            print(x)
-            print('\n')
-            print(f(x))
+
+        if(abs(f(x)) < 0.008) #Critério de parada
+            print(x) #Raiz
             print('\n')
             break
         end
     end
 end
-
-# print(f(8))
-# print('\n')
-# print(f(6))
